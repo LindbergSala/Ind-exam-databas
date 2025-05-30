@@ -1,3 +1,4 @@
+const reviewRoutes = require('./routes/reviewRoutes');
 const userRoutes = require('./routes/userRoutes');
 const movieRoutes = require('./routes/movieRoutes');
 const express = require('express');
@@ -11,6 +12,8 @@ const app = express();
 app.use(express.json()); // Gör så att vi kan ta emot JSON-data
 app.use('/movies', movieRoutes);
 app.use('/', userRoutes);
+app.use('/reviews', reviewRoutes);
+
 
 
 // Koppla upp mot MongoDB
