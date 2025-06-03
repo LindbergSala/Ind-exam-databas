@@ -11,6 +11,6 @@ module.exports = function (req, res, next) {
     req.user = decoded; // { userId, role }
     next();
   } catch (err) {
-    res.status(401).json({ error: 'Ogiltig token.' });
+    res.status(401).json({ error: 'Inte inloggad.' });
   }
 };
