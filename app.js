@@ -5,16 +5,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-// Ladda miljövariabler
 dotenv.config();
 
 const app = express();
-app.use(express.json()); // Gör så att vi kan ta emot JSON-data
+app.use(express.json());
 app.use('/movies', movieRoutes);
 app.use('/', userRoutes);
 app.use('/reviews', reviewRoutes);
-
-
 
 // Koppla upp mot MongoDB
 mongoose.connect(process.env.MONGO_URI, {

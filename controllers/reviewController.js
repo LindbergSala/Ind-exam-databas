@@ -5,7 +5,6 @@ const Movie = require('../models/movie');
 exports.createReview = async (req, res) => {
   try {
     const { movieId, rating, comment } = req.body;
-    // Användare ID tas från JWT (req.user)
     const review = new Review({
       movieId,
       userId: req.user.userId,

@@ -6,7 +6,7 @@ const auth = require('../middleware/auth');
 // Alla kan läsa recensioner och hämta alla för en film
 router.get('/', reviewController.getReviews);
 router.get('/:id', reviewController.getReviewById);
-router.get('/movie/:id', reviewController.getReviewsByMovie); // alt: flytta till movieRoutes som GET /movies/:id/reviews
+router.get('/movie/:id', reviewController.getReviewsByMovie);
 
 // Endast inloggade kan skapa, ändra och ta bort egna recensioner
 router.post('/', auth, reviewController.createReview);
