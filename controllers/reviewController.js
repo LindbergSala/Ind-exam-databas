@@ -61,6 +61,16 @@ exports.updateReview = async (req, res) => {
   }
 };
 
+// Hämta alla recensioner för en specifik film
+exports.getReviewsByMovie = async (req, res) => {
+  try {
+    const reviews = await Review.find({ movieId: req.params.id }).populate('userId', 'username');
+    res.json(reviews);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 // Ta bort en recension (bara den som skapade recensionen eller admin)
 exports.deleteReview = async (req, res) => {
   try {
